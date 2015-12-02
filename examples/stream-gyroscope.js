@@ -7,8 +7,7 @@ orb.connect(function() {
   orb.streamGyroscope();
 
   orb.on("gyroscope", function(data) {
-    console.log("::STREAMING GYROSCOPE::");
-    console.log("  data:", data);
+    console.log("::STREAMING GYROSCOPE::\n",data);
   });
 
   orb.roll(180, 0);

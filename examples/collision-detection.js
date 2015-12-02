@@ -8,8 +8,7 @@ orb.connect(function() {
   orb.color("green");
 
   orb.on("collision", function(data) {
-    console.log("collision detected");
-    console.log("  data:", data);
+    console.log("collision detected\n", data);
 
     orb.color("red");
 

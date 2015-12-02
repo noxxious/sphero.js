@@ -5,23 +5,24 @@ var orb = sphero(process.env.PORT);
 
 orb.connect(function() {
   // sets color to the provided r/g/b values
-  orb.color({ red: 255, green: 0, blue: 255 });
+  console.log("RED");
+  orb.color({ red: 255, green: 0, blue: 0 });
 
   setTimeout(function() {
-    console.log("color 1");
+    console.log("GREEN");
     // sets color to the provided hex value
-    orb.color(0xff0000);
-  }, 1000);
+    orb.color(0x00ff00);
+  }, 1500);
 
   setTimeout(function() {
-    console.log("color 2");
+    console.log("BLUE");
     // hex numbers can also be passed in strings
-    orb.color("00ff00");
-  }, 2000);
+    orb.color("0000ff");
+  }, 3000);
 
   setTimeout(function() {
-    console.log("color 3");
+    console.log("YELLOW");
     // sets color to the provided color name
-    orb.color("magenta");
-  }, 3000);
+    orb.color("yellow");
+  }, 4500);
 });

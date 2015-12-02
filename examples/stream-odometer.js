@@ -7,8 +7,7 @@ orb.connect(function() {
   orb.streamOdometer();
 
   orb.on("odometer", function(data) {
-    console.log("::STREAMING ODOMETER::");
-    console.log("  data:", data);
+    console.log("::STREAMING ODOMETER::\n",data);
   });
 
   orb.roll(180, 0);

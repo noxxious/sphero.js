@@ -6,9 +6,9 @@ var sphero = require("../");
 
 var spheros = {
   Thelma : sphero(process.env.PORT),
-  Louise : sphero("/dev/rfcomm1"),
-  Grace  : sphero("/dev/rfcomm2"),
-  Ada    : sphero("/dev/rfcomm3")
+  Louise : sphero(process.env.PORT2),
+  Grace  : sphero(process.env.PORT3),
+  Ada    : sphero(process.env.PORT4)
 };
 
 function main() {

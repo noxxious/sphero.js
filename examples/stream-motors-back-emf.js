@@ -8,8 +8,7 @@ orb.connect(function() {
   orb.streamMotorsBackEmf();
 
   orb.on("motorsBackEmf", function(data) {
-    console.log("::STREAMING MOTORS BACK EMF::");
-    console.log("  data:", data);
+    console.log("::STREAMING MOTORS BACK EMF::\n",data);
   });
 
   orb.roll(180, 0);

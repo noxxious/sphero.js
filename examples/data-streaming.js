@@ -16,8 +16,7 @@ orb.connect(function() {
   orb.setDataStreaming(opts);
 
   orb.on("dataStreaming", function(data) {
-    console.log("streaming data packet recieved");
-    console.log("  data:", data);
+    console.log("streaming data packet recieved\n", data);
   });
 
   orb.roll(150, 0);

@@ -12,6 +12,16 @@ var orb = sphero(process.env.PORT);
 
 orb.connect(listen);
 
+function listen() {
+  keypress(process.stdin);
+  process.stdin.on("keypress", handle);
+
+  console.log("Listening for key presses: [arrows], e=calibrate, q=stop calibration, space=stop");
+
+  process.stdin.setRawMode(true);
+  process.stdin.resume();
+}
+
 function handle(ch, key) {
   var stop = orb.roll.bind(orb, 0, 0),
       roll = orb.roll.bind(orb, 60);
@@ -22,10 +32,12 @@ function handle(ch, key) {
   }
 
   if (key.name === "e") {
+    console.log("Calibrating...");
     orb.startCalibration();
   }
 
   if (key.name === "q") {
+    console.log("Calibrated.");
     orb.finishCalibration();
   }
 
@@ -46,16 +58,8 @@ function handle(ch, key) {
   }
 
   if (key.name === "space") {
+    console.log("Stop!");
     stop();
   }
 }
 
-function listen() {
-  keypress(process.stdin);
-  process.stdin.on("keypress", handle);
-
-  console.log("starting to listen for arrow key presses");
-
-  process.stdin.setRawMode(true);
-  process.stdin.resume();
-}
