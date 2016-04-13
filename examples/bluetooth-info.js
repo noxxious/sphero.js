@@ -3,7 +3,12 @@
 var sphero = require("../");
 var orb = sphero(process.env.PORT);
 
-orb.connect(function() {
+orb.connect(function(error) {
+  if (error) {
+    console.err(error);
+    return;
+  }
+  
   orb.color("FF00FF");
 
   orb.getBluetoothInfo(function(err, data) {

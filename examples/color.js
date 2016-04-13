@@ -3,7 +3,12 @@
 var sphero = require("../");
 var orb = sphero(process.env.PORT);
 
-orb.connect(function() {
+orb.connect(function(function(error) {
+  if (error) {
+    console.err(error);
+    return;
+  }
+  
   // sets color to the provided r/g/b values
   orb.color({ red: 255, green: 0, blue: 255 });
 

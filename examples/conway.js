@@ -23,7 +23,11 @@ function connect(orbs, callback) {
   var total = Object.keys(orbs).length,
       finished = 0;
 
-  function done() {
+  function done(function(error) {
+    if (error) {
+      console.err(error);
+      return callback(error);
+    }
     finished++;
     if (finished >= total) { callback(); }
   }
